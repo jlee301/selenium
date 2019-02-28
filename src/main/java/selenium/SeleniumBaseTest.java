@@ -5,6 +5,7 @@ import org.junit.Before;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -15,6 +16,7 @@ import junitx.util.PropertyManager;
 
 public class SeleniumBaseTest {
   protected WebDriver driver;
+  protected WebElement element;
   
   @Before
   public void setUp() throws Exception {
