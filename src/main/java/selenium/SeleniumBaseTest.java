@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import junitx.util.PropertyManager;
 
 public class SeleniumBaseTest {
+  protected Actions actions;
   protected WebDriver driver;
   protected WebElement element;
   

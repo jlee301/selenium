@@ -23,7 +23,7 @@ public class MainPageSearchTest extends SeleniumBaseTest {
     
     // Wait for search result to be appear
     element = (new WebDriverWait(driver, 10L))
-        .until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
+        .until(ExpectedConditions.visibilityOfElementLocated(By.id("resultStats")));
     
     // Check all search result contains something that mentions "jlee301"
     List<WebElement> list = driver.findElements(By.className("g"));
