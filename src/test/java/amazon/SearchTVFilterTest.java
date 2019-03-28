@@ -79,5 +79,32 @@ public class SearchTVFilterTest extends SeleniumBaseTest {
     for(WebElement e : list)
       Assert.assertTrue(e.getText().contains("Samsung"));
 
+    
+    
+    // see more filter
+    element = driver.findElement(By.linkText("See more"));
+    element.click();
+    element = driver.findElement(By.partialLinkText("LG"));
+    element.click();
+    
+    // wait for search results to load
+    element = (new WebDriverWait(driver, 10L))
+        .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.s-result-list.sg-row")));
+
+    // Validate all search items are Samsung or LG brand
+    list = element.findElements(By.cssSelector("span.a-size-medium.a-color-base.a-text-normal"));
+    count = new int[2];
+    for(WebElement e : list) {
+      if(e.getText().contains("LG"))
+        count[0]++;
+      else if(e.getText().contains("Samsung"))
+        count[1]++;
+      else
+        Assert.fail("Result contained brand not LG or Samsung.");
+    }
+    Assert.assertTrue(count[0] > 0);
+    Assert.assertTrue(count[1] > 0);
+    Assert.assertEquals(list.size(), count[0] + count[1]);
+
   }
 }
